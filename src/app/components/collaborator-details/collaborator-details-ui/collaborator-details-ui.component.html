@@ -1,0 +1,16 @@
+<ion-accordion-group>
+  <ng-container *ngFor="let detail of details; else loading;">
+    <ion-accordion>
+      <ion-item slot="header" color="light">
+        <ion-label>{{ detail.name }}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ng-container *ngFor="let cardItems of detail.cardItems;">
+          <div [innerHTML]="renderValues(cardItems.data)" class="content"></div>
+        </ng-container>
+      </div>
+    </ion-accordion>
+  </ng-container>
+</ion-accordion-group>
+
+  

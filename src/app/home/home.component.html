@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+    <div id="container" *ngIf="!isLoading; else loading;">
+      <div class="user-card">
+        <div class="user-photo">
+          <img src="https://randomuser.me/api/portraits/women/32.jpg">
+        </div>
+        <div class="user-details">
+          <p class="name">{{ collaboratorDetails.employeeName }}</p>
+          <p class="role">{{ collaboratorDetails.jobName }}</p>
+        </div>
+      </div>
+    
+      <button [routerLink]="['/collaborator-profile']" [queryParams]="{ employeeName: collaboratorDetails.employeeName, jobName: collaboratorDetails.jobName }">Perfil do Colaborador</button>
+      <button (click)="getRandomUser()">Atualizar App</button>
+    </div>
+    
+    <ng-template #loading>
+      <div class="loading-container">
+        <app-loader></app-loader>
+      </div>
+    </ng-template>
+</ion-content>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inline Modal</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <p>{{ message }}</p>
+  <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Cancel</ion-button>
+          </ion-buttons>
+          <ion-title>Sucesso!</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="confirm()" [strong]="true">Confirm</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          App atualizado com sucesso!
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
+

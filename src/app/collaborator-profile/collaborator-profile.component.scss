@@ -1,0 +1,80 @@
+ion-menu-button {
+  color: var(--ion-color-primary);
+}
+
+#container {
+  text-align: center;
+  position: relative;
+  height: calc(100vh - 56px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  overflow-y: scroll !important;
+  padding-top: 20px;
+  
+  .user-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 200px;
+    min-height: 200px;
+    background-color: #fff;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 7px;
+    margin: 0 auto;
+
+    .user-photo {
+      width: 120px;
+      height: 120px;
+      min-width: 120px;
+      min-height: 120px;
+      max-width: 120px;
+      max-height: 120px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background-color: #000;
+      transform: translateY(-100px);
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+
+    .user-details {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .name {
+      }
+  
+      .role {
+      }
+    }
+
+  }
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #8c8c8c;
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
